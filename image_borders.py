@@ -10,7 +10,7 @@ filenames = dir+extension
 asp_ratio = 4/5
 inv_asp_ratio = 1/asp_ratio
 min_bd_thi = 0.05
-border_colour = (0, 0, 0)
+border_colour = (255, 255, 255)
 
 jpg_fs = glob.glob(filenames)
 len_of_dir = len(dir)+1
