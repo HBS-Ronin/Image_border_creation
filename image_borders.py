@@ -9,7 +9,7 @@ filenames = dir+extension
 ##### Directory for saving images with borders ######
 save_dir = dir+f'/with_borders/'
 
-####Initialising key values####
+####Declaring key variables####
 asp_ratio = 4/5  #apect ratio for the final picture
 inv_asp_ratio = 1/asp_ratio
 min_bd_thi = 0.05 #the minimum border thickness as a percentage of the greatest dimmesnion of the picture 
