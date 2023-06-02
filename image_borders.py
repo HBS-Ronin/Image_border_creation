@@ -2,7 +2,7 @@ import cv2
 import glob
 
 #####Selecting Directory for the images######
-dir = f'/Users/danyalsiddiqui/Pictures/Japan Edited Pictures' #The folder your pictures are in
+dir = f'Users/your_name_here/Pictures/sub directory' #The folder your pictures are in
 extension = f'/*.jpg' #pic extension
 filenames = dir+extension
 
