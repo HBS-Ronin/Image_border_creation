@@ -1,12 +1,12 @@
 import cv2
 import glob
 
-#####Selecting Directory for the photos######
+#####Selecting Directory for the images######
 dir = f'/Users/danyalsiddiqui/Pictures/Japan Edited Pictures' #The folder your pictures are in
 extension = f'/*.jpg' #pic extension
 filenames = dir+extension
 
-##### Directory for saving pictures with borders ######
+##### Directory for saving images with borders ######
 save_dir = dir+f'/with_borders/'
 
 ####Initialising key values####
@@ -15,7 +15,7 @@ inv_asp_ratio = 1/asp_ratio
 min_bd_thi = 0.05 #the minimum border thickness as a percentage of the greatest dimmesnion of the picture 
 border_colour = (255, 255, 255) #The border colour in RGB
 
-###Getting the full paths for picture images and and the file names for images######
+###Getting the full paths for images and and the file names for images######
 jpg_fs = glob.glob(filenames)
 
 len_of_dir = len(dir)+1
@@ -24,8 +24,7 @@ for f in jpg_fs:
     pic_list.append(f[len_of_dir:])
 
 
-a = cv2.imread(jpg_fs[6])
-# max_dim = max(a.shape)
+
 def add_border(file_name, colour):
     """
     Arguments: File name and the border colour in (R, G, B) int values
@@ -50,7 +49,7 @@ def add_border(file_name, colour):
 
 
 
-### calling the add_border function for each file path and saving the resultant image borders in the save dir####
+### calling the add_border function for each file path and saving the resultant image with borders in the save_dir####
 for idx, path in enumerate(jpg_fs):
     img = add_border(path, colour=border_colour)
     cv2.imwrite((save_dir+pic_list[idx]), img)
