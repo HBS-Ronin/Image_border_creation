@@ -1,18 +1,23 @@
 import cv2
 import glob
-import os
-import matplotlib.pyplot as plt
 
-dir = f'/Users/danyalsiddiqui/Pictures/Japan Edited Pictures'
-extension = f'/*.jpg'
+#####Selecting Directory for the photos######
+dir = f'/Users/danyalsiddiqui/Pictures/Japan Edited Pictures' #The folder your pictures are in
+extension = f'/*.jpg' #pic extension
 filenames = dir+extension
 
-asp_ratio = 4/5
-inv_asp_ratio = 1/asp_ratio
-min_bd_thi = 0.05
-border_colour = (255, 255, 255)
+##### Directory for saving pictures with borders ######
+save_dir = dir+f'/with_borders/'
 
+####Initialising key values####
+asp_ratio = 4/5  #apect ratio for the final picture
+inv_asp_ratio = 1/asp_ratio
+min_bd_thi = 0.05 #the minimum border thickness as a percentage of the greatest dimmesnion of the picture 
+border_colour = (255, 255, 255) #The border colour in RGB
+
+###Getting the full paths for picture images and and the file names for images######
 jpg_fs = glob.glob(filenames)
+
 len_of_dir = len(dir)+1
 pic_list = []
 for f in jpg_fs:
@@ -22,6 +27,10 @@ for f in jpg_fs:
 a = cv2.imread(jpg_fs[6])
 # max_dim = max(a.shape)
 def add_border(file_name, colour):
+    """
+    Arguments: File name and the border colour in (R, G, B) int values
+    Returns: Image with border
+    """
 
     a = cv2.imread(file_name)
 
@@ -39,16 +48,10 @@ def add_border(file_name, colour):
 
     return border_img
 
-save_dir = dir+f'/with_borders/'
-# os.mkdir(save_dir)
 
 
+### calling the add_border function for each file path and saving the resultant image borders in the save dir####
 for idx, path in enumerate(jpg_fs):
     img = add_border(path, colour=border_colour)
     cv2.imwrite((save_dir+pic_list[idx]), img)
-# b = cv2.copyMakeBorder(a, top, bottom, left, left, cv2.BORDER_CONSTANT, value = (255, 255, 255))
-# cv2.imwrite('test_img.jpg', b)
-# print(b.shape[0]/b.shape[1])
 
-# plt.imshow(b)
-# plt.show()
